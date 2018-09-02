@@ -1,0 +1,36 @@
+{
+  "name": "koa-ts",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts",
+    "sql-create": "cross-env NODE_ENV=create node ./src/init/sql/index.js",
+    "sql-change": "cross-env NODE_ENV=change node ./src/init/sql/index.js",
+    "models-init": "sequelize-auto -h localhost -d koa_project -u root -x '' -p 3306 -z -o src/models"
+  },
+  "author": "liuxsen <948771968@qq.com> (http://github.com/liuxsen)",
+  "license": "MIT",
+  "dependencies": {
+    "@types/koa-static": "^4.0.0",
+    "@types/sequelize": "^4.27.25",
+    "jsonwebtoken": "^8.3.0",
+    "koa": "^2.5.2",
+    "koa-bodyparser-ts": "^0.3.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.31",
+    "@types/mysql": "^2.15.5",
+    "@types/node": "^10.9.4",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  }
+}
