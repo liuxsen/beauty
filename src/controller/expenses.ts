@@ -71,34 +71,43 @@ export const list = async (ctx: Koa.Context) => {
 export const update = async (ctx: Koa.Context, next: () => void) => {
   const { token_info, shop_id, expenses_id, name, original_price, retail_price } = ctx.body;
   const oExpenses: expensesAttribute = await Expenses.findById(expenses_id);
-  const updatedExpenses = await Expenses.update(
-    {
-      name: name || oExpenses.name,
-      original_price: original_price || oExpenses.original_price,
-      retail_price: retail_price || oExpenses.retail_price,
-      updatedAt: new Date()
-    },
-    {
-      where: {
-        shop_id: shop_id,
-        owner_id: token_info.id,
-        id: expenses_id
+  if (oExpenses) {
+    const updatedExpenses = await Expenses.update(
+      {
+        name: name || oExpenses.name,
+        original_price: original_price || oExpenses.original_price,
+        retail_price: retail_price || oExpenses.retail_price,
+        updatedAt: new Date()
+      },
+      {
+        where: {
+          shop_id: shop_id,
+          owner_id: token_info.id,
+          id: expenses_id
+        }
       }
+    );
+    if (updatedExpenses && updatedExpenses[0]) {
+      const oNewExpenses = await Expenses.findById(expenses_id);
+      ctx.body = {
+        data: oNewExpenses,
+        status: {
+          code: 0
+        }
+      };
+    } else {
+      ctx.body = {
+        status: {
+          code: 400,
+          msg: '更新失败'
+        }
+      };
     }
-  );
-  if (updatedExpenses && updatedExpenses[0]) {
-    const oNewExpenses = await Expenses.findById(expenses_id);
-    ctx.body = {
-      data: oNewExpenses,
-      status: {
-        code: 0
-      }
-    };
   } else {
     ctx.body = {
       status: {
         code: 400,
-        msg: '更新失败'
+        msg: '没有对应资金'
       }
     };
   }

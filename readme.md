@@ -11,3 +11,9 @@
 + models-init // 映射 数据库表生成 typescript
 + npm run dev
 
+## api 
+
+> 推荐使用 vscode 
+
++ 安装插件 rest client
++ [api文档](./api/v1.http)

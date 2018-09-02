@@ -1,0 +1,99 @@
+@url=http://localhost:3000
+@json=content-Type: application/json;charet=UTF-8
+@http=HTTP/1.1
+
+
+### 注册
+POST {{url}}/register {{http}}
+{{json}}
+
+{
+    "email": "123@qq.com",
+    "password": "123456"
+}
+
+### 登录
+POST {{url}}/login {{http}}
+{{json}}
+
+{
+    "email": "xxx@qq.com",
+    "password": "123456"
+}
+
+### 更新个人信息
+POST {{url}}/profile/update {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "name":"liuxsen",
+    "password":"12345",
+    "phone":"15901241803",
+    "nick":"nick"
+}
+
+###  新建店铺
+POST {{url}}/shop/create {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "name":"test",
+    "desc":"desc",
+    "rent":"400"
+}
+
+###  更新店铺
+POST {{url}}/shop/update {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "shop_id":1,
+    "name":"修改一下店铺"   
+}
+
+### 新建资金
+POST {{url}}/expenses/create {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "name":"洗发液",
+    "original_price":123,
+    "retail_price":1233,
+    "shop_id":1
+}
+
+### 获取资金列表
+POST {{url}}/expenses/list {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "limit": 10,
+    "offset": 0,
+    "shop_id": 1
+}
+
+### 更新资金
+POST {{url}}/expenses/update {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "shop_id": 1,
+    "expenses_id": 14,
+    "name": "xxxxadf"
+}
+
+### 删除资金
+POST {{url}}/expenses/delete {{http}}
+{{ json }}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEyM0BxcS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlkIjoxMSwiaWF0IjoxNTM1ODg2MjQ4LCJleHAiOjE1MzY0OTEwNDh9.rJ7s4GgweZeRpNVUC4StNUU8x4-RLNxV3c5tQLFKSSs
+
+{
+    "shop_id": 1,
+    "expenses_id": 14
+}

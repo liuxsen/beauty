@@ -1,7 +1,7 @@
 // 过滤路由，
 import * as Koa from 'koa';
 const JWT = require('../utils/jwt');
-const allowPage = ['/auth/login', 'auth/register'];
+const allowPage = ['/login', '/register'];
 const USERCODE = require('../codes/user');
 export default async (ctx: Koa.Context, next: () => void) => {
   const url = ctx.originalUrl;

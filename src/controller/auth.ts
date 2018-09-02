@@ -37,7 +37,6 @@ export const login = async (ctx: Koa.Context) => {
 };
 
 export const register = async (ctx: Koa.Context) => {
-  const token = '';
   const { email, password } = ctx.body;
   const hasUser: userAttribute = await User.findOne({
     where: {
@@ -79,13 +78,11 @@ export const register = async (ctx: Koa.Context) => {
 
 // 更新用户信息
 export const updateUser = async (ctx: Koa.Context) => {
-  const { token } = ctx.headers;
-  const { phone, nick, name, password } = ctx.body;
-  const { id } = JWT.decoded(token);
+  const { phone, nick, name, password, token_info } = ctx.body;
   // 数据库中的user
   const oldUser: userAttribute = await User.findOne({
     where: {
-      id: id
+      id: token_info.id
     }
   });
   if (oldUser) {
@@ -98,7 +95,7 @@ export const updateUser = async (ctx: Koa.Context) => {
       },
       {
         where: {
-          id: id
+          id: token_info.id
         }
       }
     );
