@@ -4,7 +4,8 @@
 
 > 项目打开方式
 + 运行之前请确保安装了 mysql [window](https://zhuanlan.zhihu.com/p/38383151) [mac](https://github.com/jaywcjlove/mysql-tutorial/blob/9c5e6763961a053c92da51387a93ecb2990d4306/chapter2/2.1.md)
-+ git colne https://github.com/liuxsen/beauty.git --recursive
++ 新建数据库  koa_project `create database koa_project`;
++ git colne https://github.com/liuxsen/beauty.git
 + npm i // 安装项目依赖
 + npm run sql-create  // 新建数据库表
 + npm run sql-change // 执行数据库修改命令
