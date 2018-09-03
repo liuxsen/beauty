@@ -8,7 +8,7 @@ POST {{url}}/register {{http}}
 {{json}}
 
 {
-    "email": "123@qq.com",
+    "email": "123asdfasdf@qq.com",
     "password": "123456"
 }
 
